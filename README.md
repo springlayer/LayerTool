@@ -69,7 +69,6 @@ LayerServer
 ## 在线演示
 * Kibana-数据可视化和挖掘工具：[http://192.168.1.253:5601/app/kibana](http://192.168.1.253:5601/app/kibana)
 * Jenkins-CICD：[http://192.168.1.253:8080/login](http://192.168.1.253:8080/login)
-* Nexus-私服依赖库：[http://192.168.1.253:8081/]http://192.168.1.253:8081/)
 * SonarQube 代码缺陷检测：[http://192.168.1.253:9000/](http://192.168.1.253:9000/)
 * Rocketmq 消息可视化：[http://192.168.1.253:18080/#/](http://192.168.1.253:18080/#/)
 * Nacos 服务发现和配置中心：[http://192.168.1.253:8848/nacos/index.html#/login](http://192.168.1.253:8848/nacos/index.html#/login)
