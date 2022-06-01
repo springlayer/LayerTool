@@ -9,7 +9,7 @@
    <img src="https://img.shields.io/badge/SkyWalking-8.7.0-blue.svg" alt="Downloads"> 
    <img src="https://img.shields.io/badge/Rocketmq-2.0.3-blue.svg" alt="Downloads"> 
    <img src="https://img.shields.io/badge/Elasticsearch-7.svg" alt="Downloads">
-   <img src="https://img.shields.io/badge/Author-zhi%20Hou-ff69b4.svg" alt="Downloads">
+   <img src="https://img.shields.io/badge/Author-H%20zhi-ff69b4.svg" alt="Downloads">
  </p>  
 
 ## SpringLayer
