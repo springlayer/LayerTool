@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springlayer</groupId>
+    <artifactId>layer-tool</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>layer-tool</name>
+    <properties>
+        <layer.tool.version>1.0.0</layer.tool.version>
+        <java.version>1.8</java.version>
+        <maven.plugin.version>3.8.0</maven.plugin.version>
+        <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <mybatis.plus.version>3.5.1</mybatis.plus.version>
+        <alibaba.cloud.version>2.1.0.RELEASE</alibaba.cloud.version>
+        <alibaba-nacos.version>2.1.2.RELEASE</alibaba-nacos.version>
+        <alibaba.seata.version>1.4.0-SNAPSHOT</alibaba.seata.version>
+        <spring.cloud.version>Hoxton.SR9</spring.cloud.version>
+        <postgresql.version>42.1.1</postgresql.version>
+        <druid-spring.version>1.1.18</druid-spring.version>
+        <nexus.url>http://192.168.1.253:8081/repository</nexus.url>
+        <feign-okhttp.version>10.4.0</feign-okhttp.version>
+        <hutool-all.version>5.3.0</hutool-all.version>
+        <fastjson.version>1.2.75</fastjson.version>
+        <rocketmq.version>2.0.3</rocketmq.version>
+        <lombok.version>1.18.10</lombok.version>
+        <okhttp.version>3.11.0</okhttp.version>
+        <swagger.version>2.9.2</swagger.version>
+        <knife4j.version>3.0.3</knife4j.version>
+        <flowable.version>6.4.2</flowable.version>
+        <easy-captcha.version>1.6.2</easy-captcha.version>
+        <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
+        <poi.version>3.15</poi.version>
+        <easypoi.version>3.3.0</easypoi.version>
+        <poi-tl.version>1.10.0</poi-tl.version>
+        <xdocreport.version>2.0.2</xdocreport.version>
+        <minio.version>8.3.3</minio.version>
+        <okhttp.version>4.9.0</okhttp.version>
+    </properties>
+
+    <modules>
+        <module>layer-core-boot</module>
+        <module>layer-core-cloud</module>
+        <module>layer-core-elasticsearch</module>
+        <module>layer-core-flowable</module>
+        <module>layer-core-tool</module>
+        <module>layer-core-nacos</module>
+        <module>layer-core-launch</module>
+        <module>layer-core-mybatis</module>
+        <module>layer-core-redis</module>
+        <module>layer-core-rocketmq</module>
+        <module>layer-core-secure</module>
+        <module>layer-core-knife4j</module>
+        <module>layer-core-log</module>
+        <module>layer-core-transaction</module>
+        <module>layer-core-oss</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- okhttp3 加载顺序优先级最高，覆盖dependencies内置的okhttp3，解决与minio冲突问题 -->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <url>${nexus.url}/maven-releases/</url>
+            <uniqueVersion>true</uniqueVersion>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>${nexus.url}/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
