@@ -30,7 +30,7 @@
 * 项目分包明确，规范微服务的开发模式，使包与包之间的分工清晰。
 
 ## 架构图
-<img src="http://192.168.1.254/zkzx-layer/layer-core/-/raw/master/%E6%9E%B6%E6%9E%84%E5%9B%BE.png"/>
+<img src="https://github.com/h-zhi/LayerTool/blob/master/%E6%9E%B6%E6%9E%84%E5%9B%BE.png"/>
 
 ## 服务工程结构
 ``` 
