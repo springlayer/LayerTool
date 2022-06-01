@@ -1,0 +1,34 @@
+---
+discovery:
+  server: 192.168.1.253:8848
+  group: dev
+  username: xxx
+  password: xxxxxx
+  namespace: 99d1c138-af0e-4ccd-82f7-7a58d917ce96
+config:
+  server: 192.168.1.253:8848
+  group: dev
+  namespace: 99d1c138-af0e-4ccd-82f7-7a58d917ce96
+  username: xxx
+  password: xxxxxx
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        group: ${discovery.group}
+        server-addr: ${discovery.server}
+        namespace: ${discovery.namespace:}
+        username: ${discovery.username}
+        password: ${discovery.password}
+      config:
+        group: ${config.group}
+        server-addr: ${config.server}
+        namespace: ${config.namespace:}
+        username: ${config.username}
+        password: ${config.password}
+        file-extension: yml
+        ext-config[0]:
+          group: ${config.group}
+          data-id: layer.yml
+          refresh: true
