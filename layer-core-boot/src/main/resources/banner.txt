@@ -1,0 +1,25 @@
+${AnsiColor.BRIGHT_CYAN}////////////////////////////////////////////////////////////////////
+${AnsiColor.BRIGHT_CYAN}//                          _ooOoo_                               //
+${AnsiColor.BRIGHT_CYAN}//                         o8888888o                              //
+${AnsiColor.BRIGHT_CYAN}//                         88" . "88                              //
+${AnsiColor.BRIGHT_CYAN}//                         (| ^_^ |)                              //
+${AnsiColor.BRIGHT_CYAN}//                         O\  =  /O                              //
+${AnsiColor.BRIGHT_CYAN}//                      ____/`---'\____                           //
+${AnsiColor.BRIGHT_CYAN}//                    .'  \\|     |//  `.                         //
+${AnsiColor.BRIGHT_CYAN}//                   /  \\|||  :  |||//  \                        //
+${AnsiColor.BRIGHT_CYAN}//                  /  _||||| -:- |||||-  \                       //
+${AnsiColor.BRIGHT_CYAN}//                  |   | \\\  -  /// |   |                       //
+${AnsiColor.BRIGHT_CYAN}//                  | \_|  ''\---/''  |   |                       //
+${AnsiColor.BRIGHT_CYAN}//                  \  .-\__  `-`  ___/-. /                       //
+${AnsiColor.BRIGHT_CYAN}//                ___`. .'  /--.--\  `. . ___                     //
+${AnsiColor.BRIGHT_CYAN}//              ."" '<  `.___\_<|>_/___.'  >'"".                  //
+${AnsiColor.BRIGHT_CYAN}//            | | :  `- \`.;`\ _ /`;.`/ - ` : | |                 //
+${AnsiColor.BRIGHT_CYAN}//            \  \ `-.   \_ __\ /__ _/   .-` /  /                 //
+${AnsiColor.BRIGHT_CYAN}//      ========`-.____`-.___\_____/___.-`____.-'========         //
+${AnsiColor.BRIGHT_CYAN}//                           `=---='                              //
+${AnsiColor.BRIGHT_CYAN}//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        //
+${AnsiColor.BRIGHT_CYAN}//             佛祖保佑       永不宕机      永无BUG                 //
+${AnsiColor.BRIGHT_CYAN}////////////////////////////////////////////////////////////////////
+${AnsiColor.BRIGHT_CYAN}     |_|                     \___|___/                     |_|
+
+${AnsiColor.BLUE}${spring.application.name} ::${AnsiColor.RED}${spring.profiles.active}: Running SpringBoot ${spring-boot.version}
