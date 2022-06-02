@@ -8,6 +8,35 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>layer-tool</name>
+    <description>
+        layer-tool is a powerful toolbox for SpringLayer
+    </description>
+    <url>https://github.com/springlayer/LayerTool</url>
+    <developers>
+        <developer>
+            <id>h-zhi</id>
+            <name>侯志</name>
+            <email>1251247744@qq.com</email>
+            <roles>
+                <role>Java Development Engineer</role>
+            </roles>
+            <timezone>2022-06-01 23:33:33</timezone>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/springlayer/LayerTool</url>
+        <developerConnection>https://github.com/springlayer</developerConnection>
+        <connection>https://github.com/springlayer/LayerTool.git</connection>
+    </scm>
+
     <properties>
         <layer.tool.version>1.0.0</layer.tool.version>
         <java.version>1.8</java.version>
@@ -22,7 +51,6 @@
         <spring.cloud.version>Hoxton.SR9</spring.cloud.version>
         <postgresql.version>42.1.1</postgresql.version>
         <druid-spring.version>1.1.18</druid-spring.version>
-        <nexus.url>http://192.168.1.253:8081/repository</nexus.url>
         <feign-okhttp.version>10.4.0</feign-okhttp.version>
         <hutool-all.version>5.3.0</hutool-all.version>
         <fastjson.version>1.2.75</fastjson.version>
@@ -103,25 +131,73 @@
     </dependencies>
 
     <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <url>${nexus.url}/maven-releases/</url>
-            <uniqueVersion>true</uniqueVersion>
-        </repository>
         <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>${nexus.url}/maven-snapshots/</url>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
     </distributionManagement>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <includeSystemScope>true</includeSystemScope>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <additionalJOptions>
+                        <additionalJOption>-Xdoclint:none</additionalJOption>
+                    </additionalJOptions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
