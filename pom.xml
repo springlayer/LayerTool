@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.springlayer</groupId>
+    <groupId>io.github.springlayer</groupId>
     <artifactId>layer-tool</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -35,9 +35,6 @@
         <easy-captcha.version>1.6.2</easy-captcha.version>
         <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
         <poi.version>3.15</poi.version>
-        <easypoi.version>3.3.0</easypoi.version>
-        <poi-tl.version>1.10.0</poi-tl.version>
-        <xdocreport.version>2.0.2</xdocreport.version>
         <minio.version>8.3.3</minio.version>
         <okhttp.version>4.9.0</okhttp.version>
     </properties>

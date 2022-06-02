@@ -1,18 +1,17 @@
 package org.springlayer.core.oss.helper;
 
-import org.springlayer.core.oss.object.OssObject;
-import org.springlayer.core.tool.snow.SnowFlake;
-import org.springlayer.core.tool.utils.StringUtil;
 import io.minio.*;
 import io.minio.http.Method;
 import io.minio.messages.DeleteError;
 import io.minio.messages.DeleteObject;
 import io.minio.messages.Item;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.multipart.MultipartFile;
+import org.springlayer.core.oss.object.OssObject;
+import org.springlayer.core.tool.snow.SnowFlake;
+import org.springlayer.core.tool.utils.StringUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
@@ -26,7 +25,6 @@ import java.util.stream.Collectors;
  * @Date 2022-05-30 15:06
  * @description
  **/
-@Slf4j
 @Component
 @RequiredArgsConstructor
 public class OssHelper {
@@ -62,9 +60,7 @@ public class OssHelper {
             minioClient.makeBucket(MakeBucketArgs.builder()
                     .bucket(bucketName)
                     .build());
-            log.info("创建存储bucket成功！ 桶名：{}", bucketName);
         } catch (Exception e) {
-            log.error("创建存储bucket失败！ 桶名：{}", bucketName);
             e.printStackTrace();
             return false;
         }
@@ -86,10 +82,8 @@ public class OssHelper {
                 OssObject upload = upload(files[i], bucketName, anonymous);
                 ossObjectList.add(upload);
             }
-            log.info("文件批量上传成功！ ---> 桶名：{}, ---> 是否匿名上传：{}", bucketName, anonymous);
             return ossObjectList;
         } catch (Exception e) {
-            log.error("文件批量上传失败！ ---> 桶名：{}, ---> 是否匿名上传：{}", bucketName, anonymous);
             e.printStackTrace();
             return ossObjectList;
         }
@@ -114,10 +108,8 @@ public class OssHelper {
             PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(bucketName).object(objectName)
                     .stream(file.getInputStream(), file.getSize(), -1).contentType(file.getContentType()).build();
             ObjectWriteResponse objectWriteResponse = minioClient.putObject(objectArgs);
-            log.info("文件上传成功！ ---> 桶名：{}, ---> 是否匿名上传：{}", bucketName, anonymous);
             return OssObject.builder().objectName(objectWriteResponse.object()).originalName(file.getOriginalFilename()).fileType(file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."))).bucketName(bucketName).build();
         } catch (Exception e) {
-            log.error("文件上传失败！ ---> 桶名：{}, ---> 是否匿名上传：{}", bucketName, anonymous);
             e.printStackTrace();
             return null;
         }
@@ -151,9 +143,7 @@ public class OssHelper {
                     stream.flush();
                 }
             }
-            log.info("文件下载成功！ ---> 桶名：{}, ---> 文件名：{}", bucketName, fileName);
         } catch (Exception e) {
-            log.error("文件下载失败！ ---> 桶名：{}, ---> 文件名：{}", bucketName, fileName);
             e.printStackTrace();
         }
     }
@@ -171,7 +161,6 @@ public class OssHelper {
         try {
             return minioClient.getPresignedObjectUrl(build);
         } catch (Exception e) {
-            log.error("文件预览失败！ ---> 桶名：{}, ---> 文件名：{}", bucketName, fileName);
             e.printStackTrace();
             return null;
         }
@@ -208,10 +197,8 @@ public class OssHelper {
         try {
             minioClient.removeObject(RemoveObjectArgs.builder().bucket(bucketName).object(fileName).build());
         } catch (Exception e) {
-            log.error("文件移除失败！ ---> 桶名：{}, ---> 文件名：{}", bucketName, fileName);
             return false;
         }
-        log.info("文件移除成功！ ---> 桶名：{}, ---> 文件名：{}", bucketName, fileName);
         return true;
     }
 
