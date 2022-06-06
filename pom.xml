@@ -65,6 +65,7 @@
         <poi.version>3.15</poi.version>
         <minio.version>8.3.3</minio.version>
         <okhttp.version>4.9.0</okhttp.version>
+        <easypoi.version>3.3.0</easypoi.version>
     </properties>
 
     <modules>
@@ -83,6 +84,7 @@
         <module>layer-core-log</module>
         <module>layer-core-transaction</module>
         <module>layer-core-oss</module>
+        <module>layer-core-poi</module>
     </modules>
 
     <dependencyManagement>

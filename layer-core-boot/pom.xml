@@ -18,6 +18,11 @@
     <dependencies>
         <dependency>
             <groupId>io.github.springlayer</groupId>
+            <artifactId>layer-core-cloud</artifactId>
+            <version>${layer.tool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.springlayer</groupId>
             <artifactId>layer-core-tool</artifactId>
             <version>${layer.tool.version}</version>
         </dependency>
@@ -28,7 +33,17 @@
         </dependency>
         <dependency>
             <groupId>io.github.springlayer</groupId>
-            <artifactId>layer-core-mybatis</artifactId>
+            <artifactId>layer-core-secure</artifactId>
+            <version>${layer.tool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.springlayer</groupId>
+            <artifactId>layer-core-knife4j</artifactId>
+            <version>${layer.tool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.springlayer</groupId>
+            <artifactId>layer-core-nacos</artifactId>
             <version>${layer.tool.version}</version>
         </dependency>
         <dependency>
